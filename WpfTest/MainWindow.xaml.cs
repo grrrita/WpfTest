@@ -40,15 +40,21 @@ namespace WpfTest
             timer.Start();
 
         }
+        private void Result()
+        {
+            MessageBox.Show("Тест окончен.\nНачало: "+now.ToString()+"\nКонец: "+DateTime.Now.ToString()+"\nПравильных ответов: " + k);
+            btnCheck.IsEnabled = false;
+        }
         void timer_Tick(object sender, EventArgs e)
         {
             lblTime.Content = DateTime.Now.Subtract(now).ToString(@"mm\:ss");
             if (lblTime.Content.ToString() == "10:00")
-                MessageBox.Show("Тест окончен.\nПравильных ответов: " + k); ;
+                Result();
         }
 
         private void Btn_Click(object sender, RoutedEventArgs e)
         {
+            
             for (int j=0;j<ColVoprt-1;j++)
             {
                 int var = Convert.ToInt32(Info[j,6]);
@@ -56,11 +62,22 @@ namespace WpfTest
                 {
                     k++;
                     rb[j, var - 1].Background = new SolidColorBrush(Colors.Green);
+                    
                 }
                 else
-                    rb[j, var - 1].Background = new SolidColorBrush(Colors.Red);
+                {
+                    for (int i=0;i<5;i++)
+                    {
+                        if (rb[j, i].IsChecked == true)
+                        {
+                            rb[j, i].Background = new SolidColorBrush(Colors.Red);
+                            
+                        }
+                        break;
+                    }
+                }
             }
-            MessageBox.Show("Тест окончен.\nПравильных ответов: " + k);
+            Result();
             k = 0;
         }
         private void Window_Initialized(object sender, EventArgs e)
