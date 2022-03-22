@@ -45,7 +45,7 @@ namespace WpfTest
         private void Result()
         {
             timer.Stop();
-            MessageBox.Show("Тест окончен.\nНачало: "+now.ToString()+"\nКонец: "+DateTime.Now.ToString()+"\nПравильных ответов: " + k);
+            MessageBox.Show("Тест окончен.\nНачало: "+now.ToString()+"\nКонец: "+DateTime.Now.ToString()+"\nПравильных ответов: " + k+" из "+(ColVoprt-1));
             btnCheck.IsEnabled = false;
         }
         void timer_Tick(object sender, EventArgs e)
