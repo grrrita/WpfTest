@@ -27,11 +27,11 @@ namespace WpfTest
         Label lq;
         RadioButton[,] rb;
         int k;
-        public static int pv;
         String[,] Info;
         DateTime now;
         StackPanel[] panels;
         DispatcherTimer timer;
+
         public MainWindow()
         {
             InitializeComponent();
@@ -50,8 +50,9 @@ namespace WpfTest
         }
         void timer_Tick(object sender, EventArgs e)
         {
-            lblTime.Content = DateTime.Now.Subtract(now).ToString(@"mm\:ss");
-            if (lblTime.Content.ToString() == "10:00")
+            //отсчет 30 минут в обратном порядке
+            lblTime.Content = "Оставшееся время: "+now.AddMinutes(30).Subtract(DateTime.Now).ToString(@"mm\:ss");
+            if (lblTime.Content.ToString() == "30:00")
                 Result();
         }
 
@@ -112,7 +113,6 @@ namespace WpfTest
 
             ColVoprt = excelRange.Rows.Count;
             Info = new String[ColVoprt,7];
-            pv = 0;
             for (int i = 1; i < ColVoprt+1; i++)
             {
                 Info[i - 1, 0] = Convert.ToString((excelRange.Cells[i + 1, 1] as Microsoft.Office.Interop.Excel.Range).Value2);
