@@ -5,7 +5,7 @@ xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 xmlns:local="clr-namespace:WpfTest"
 mc:Ignorable="d"
-Title="MainWindow" Height="523" Width="1120" Initialized="Window_Initialized">
+Title="Тест" Height="523" Width="1120" Initialized="Window_Initialized">
     <ScrollViewer>
         <Grid>
             <Grid.RowDefinitions>
@@ -14,7 +14,7 @@ Title="MainWindow" Height="523" Width="1120" Initialized="Window_Initialized">
                 <RowDefinition></RowDefinition>
             </Grid.RowDefinitions>
             <Grid Grid.Row="0">
-                <Label FontSize="30" Content="Тест на знание истории России" HorizontalAlignment="Center"></Label>
+                <Label FontSize="30" Content="Тест на знание истории" HorizontalAlignment="Center"></Label>
             </Grid>
             <Grid Grid.Row="1"> <StackPanel Name="StackMain" Orientation="Vertical" Margin="0,0,0,0">
                 </StackPanel>
