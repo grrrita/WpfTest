@@ -47,6 +47,7 @@ namespace WpfTest
             timer.Stop();
             MessageBox.Show("Тест окончен.\nНачало: "+now.ToString()+"\nКонец: "+DateTime.Now.ToString()+"\nПравильных ответов: " + k+" из "+(ColVoprt-1));
             btnCheck.IsEnabled = false;
+            Environment.Exit(0);
         }
         void timer_Tick(object sender, EventArgs e)
         {
@@ -126,7 +127,7 @@ namespace WpfTest
             excelBook.Close(true, null, null);
             excelApp.Quit();
         }
-    }
 
+    }
     }
 

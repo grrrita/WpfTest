@@ -13,5 +13,10 @@ namespace WpfTest
     /// </summary>
     public partial class App : Application
     {
+        private void Application_Startup(object sender, StartupEventArgs e)
+        {
+            UserWindow w=new UserWindow();
+            w.Show();
+        }
     }
 }

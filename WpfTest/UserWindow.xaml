@@ -1,0 +1,30 @@
+﻿<Window x:Class="WpfTest.UserWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfTest"
+        mc:Ignorable="d"
+        Title="Авторизация" Height="170" Width="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition></ColumnDefinition>
+            <ColumnDefinition></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0" Grid.Row="0" Orientation="Vertical" >
+            <Label Margin="5">Имя</Label>
+            <Label Margin="5">Возраст</Label>
+        </StackPanel>
+        <StackPanel Grid.Column="1" Grid.Row="0" Orientation="Vertical" >
+            <TextBox x:Name="tbName" Margin="8" DataContext="{Binding ElementName=UsersList,Path=SelectedItem}" Text="{Binding Path=Name}"></TextBox>
+            <TextBox x:Name="tbAge" Margin="8" DataContext="{Binding ElementName=UsersList,Path=SelectedItem}" Text="{Binding Path=Age}"></TextBox>
+        </StackPanel>
+        <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Height="40" HorizontalAlignment="Center">
+            <Button x:Name="btnStart" Margin="8" Click="btnStart_Click">Начать тест</Button>
+        </StackPanel>
+    </Grid>
+</Window>
