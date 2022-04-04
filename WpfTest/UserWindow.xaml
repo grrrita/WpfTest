@@ -24,7 +24,7 @@
             <TextBox x:Name="tbAge" Margin="8" DataContext="{Binding ElementName=UsersList,Path=SelectedItem}" Text="{Binding Path=Age}"></TextBox>
         </StackPanel>
         <StackPanel Orientation="Horizontal" Grid.Row="1" Grid.ColumnSpan="2" Height="40" HorizontalAlignment="Center">
-            <Button x:Name="btnStart" Margin="8" Click="btnStart_Click">Начать тест</Button>
+            <Button x:Name="btnStart" Click="btnStart_Click" Height="31" Width="74" Content="Начать тест"/>
         </StackPanel>
     </Grid>
 </Window>
