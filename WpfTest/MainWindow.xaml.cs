@@ -23,7 +23,7 @@ namespace WpfTest
     public partial class MainWindow : Window
     {
         public static int ColVoprt;
-      
+        Label[,] labs; 
         Label lq;
         RadioButton[,] rb;
         int k;
@@ -47,7 +47,7 @@ namespace WpfTest
             timer.Stop();
             MessageBox.Show("Тест окончен.\nНачало: "+now.ToString()+"\nКонец: "+DateTime.Now.ToString()+"\nПравильных ответов: " + k+" из "+(ColVoprt-1));
             btnCheck.IsEnabled = false;
-            Environment.Exit(0);
+            
         }
         void timer_Tick(object sender, EventArgs e)
         {
@@ -63,16 +63,12 @@ namespace WpfTest
             for (int j=0;j<ColVoprt-1;j++)
             {
                 int var = Convert.ToInt32(Info[j,6]);
-                if (rb[j,var-1].IsChecked==true)
-                {
+                if (rb[j, var - 1].IsChecked == true)
                     k++;
-                    panels[j].Background = new SolidColorBrush(Colors.LightGreen);
-                    
-                }
-                else
-                {
-                    panels[j].Background = new SolidColorBrush(Colors.OrangeRed);
-                }
+                for (int i=0;i<5;i++)
+                    if(rb[j,i].IsChecked == true)
+                        rb[j, i].Foreground = new SolidColorBrush(Colors.Red);
+                rb[j, var - 1].Foreground = new SolidColorBrush(Colors.Green);
             }
             Result();
             k = 0;
